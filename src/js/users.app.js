@@ -72,7 +72,7 @@ var usersApp = (function() {
             </div>
           </div>
           <div class="card-body">
-            <form id="registrationForm" class="card-body">
+            <form id="createUser" class="card-body">
               <div id="formMsg" class="alert alert-danger text-center">Your form has errors</div>
 
               <div class="row">
