@@ -72,9 +72,54 @@ passport.deserializeUser(function(user, done){
   done(null, user);
 });
 
+app.use(function(req,res,next){
+  res.locals.session = req.session;
 
-app.use(passport.initialize());
-app.use(passport.session());app.use('/', indexRouter);
+  res.locals.showLogin = true;
+  if(req.session.passport){
+    if(req.session.passport.user){
+      res.locals.showLogin = false;
+    }
+  }
+  next();
+});
+
+//session based access control
+app.use(function(req,res,next){
+  //return next();
+
+  var whitelist = [
+    '/',
+    '/auth'
+  ];
+
+  if(whitelist.indexOf(req.url) !== -1){
+    return next();
+  }
+
+var subs = [
+'/public/',
+'/api/auth/',
+
+];
+
+for(var sub of subs){
+if(req.url.substring(0,sub.length)===sub){
+return next();
+
+}
+
+}
+
+if(req.isAuthenticated()){
+return next();
+}
+
+  return res.redirect('/auth#login');
+
+});
+
+app.use('/', indexRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/users', apiUsersRouter);
 app.use('/users', usersRouter);
