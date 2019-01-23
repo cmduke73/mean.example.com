@@ -29,6 +29,8 @@ var articlesApp = (function() {
           <td>${article[i]['body']}</td>
           <td>${article[i]['keywords']}</td>
           <td>${article[i]['description']}</td>
+          <td>${article[i]['created']}</td>
+          <td>${article[i]['modified']}</td>
           </tr>`;
       }
 
@@ -48,6 +50,8 @@ var articlesApp = (function() {
                 <td>Body</td>
                 <td>Keywords</td>
                 <td>Description</td>
+                <td>created</td>
+                <td>modified</td>
               </tr>
             </thead>
             <tbody>${rows}</tbody>
