@@ -184,7 +184,7 @@ var articlesApp = (function() {
                 <input type="text" id="body" name="body" class="form-control" value="${data.article.body}" required>
               </div>
               </div>
-
+              <div class="row">
               <div class="form-group col-md-6">
               <label for="last_name">Slug</label>
               <input type="text" id="slug" name="slug" class="form-control" value="${data.article.slug}" required>
@@ -209,7 +209,7 @@ var articlesApp = (function() {
             </form>
           </div>
           <div>
-              <a href="#delete-${data.article._id}" class="text-danger">Delete</a>
+          <a href="#delete-${data.article._id}" class="text-danger">Delete</a>
         </div>
       `;
 
