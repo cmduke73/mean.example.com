@@ -12,7 +12,7 @@ config.cookie = {};
 config.session.secret = '7j&1tH!cr4F*1U';
 
 //Define the domain for which this cookie is to be set
-config.cookie.domain = 'localhost';
+config.cookie.domain = 'loc.mean.example.com';
 
 config.mongodb = 'mongodb://localhost/mean-cms';
 module.exports = config;
